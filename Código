@@ -1,0 +1,286 @@
+//Banco de dados
+CREATE DATABASE DBEQUIPAMENTOS
+
+USE DBEQUIPAMENTOS
+
+//Periféricos de CPU
+CREATE TABLE Monitores(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   modeloMonitor nvarchar,
+   idMarca int,
+   nomeMarca varchar,
+   polegadas smallint,
+   tipoTela nvarchar,
+   status varchar,
+   imgMonitor image,	
+   PRIMARY KEY( codKit )
+);
+
+
+CREATE TABLE Teclados(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   idMarca int,
+   nomeMarca varchar,
+   tipoTeclado nvarchar,
+   status varchar,
+   imgTeclado image,	
+   PRIMARY KEY( codKit )
+);
+
+CREATE TABLE Mouses(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   modeloMouses nvarchar,
+   idMarca int,
+   nomeMarca varchar,
+   tipoMouse nvarchar,
+   status varchar,
+   imgMouse image,	
+   PRIMARY KEY( codKit )
+);
+
+CREATE TABLE Saida_Audio(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   modeloSaidaAudio nvarchar,
+   tipoSaidaAudio nvarchar,
+   idMarca int,
+   nomeMarca varchar,
+   status varchar,
+   imgSaidaAudio image,	
+   PRIMARY KEY( codKit )
+);
+
+CREATE TABLE Entrada_Audio(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   modeloEntradaAudio nvarchar,
+   tipoEntrAudio nvarchar,
+   idMarca int,
+   nomeMarca varchar,
+   status varchar,
+   imgEntradaAudio image,	
+   PRIMARY KEY( codKit )
+);
+
+
+//Componentes de CPU
+
+CREATE TABLE Armazenamento(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   modeloHD nvarchar,
+   tipoArmazenamento varchar (4),
+   idMarca int,
+   nomeMarca varchar,
+   polegadas smallint,
+   espacoArmaz nvarchar,
+   rpm smallint,
+   tipoSata nvarchar,
+   status varchar,
+   imgHD image,	
+   PRIMARY KEY( codKit )
+);
+
+CREATE TABLE Processador(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   idMarca int,
+   nomeMarca varchar,
+   tipoProcessador varchar,
+   serieProcessador nvarchar,
+   tipoSocket nvarchar,
+   tipoSata nvarchar,
+   qtdNucleos smallint (2),
+   frequencia nvarchar (5),
+   coolerProcessador varchar (1),
+   ResumoProcessador nvarchar (80),
+   status varchar,
+   imgProcessador image,	
+   PRIMARY KEY( codKit )
+);
+
+//nota:o campo tipoProcessador é para indicação Marketplace ou OpenBox;
+//nota: coolerProcessador é para indicar se o processador já tem cooler. Resposta "s" ou "n".
+
+
+
+CREATE TABLE Memoria(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   idMarca int,
+   nomeMarca varchar,
+   ddr nvarchar,
+   velocidadeMHz smallint (3),
+   capacidadeGB smallint (3),
+   tipoSata nvarchar,
+   qtdNucleos smallint (2),
+   frequencia nvarchar (5),
+   status varchar,
+   imgMemoria image,	
+   PRIMARY KEY( codKit )
+);
+
+
+
+CREATE TABLE Placa_Mae(
+   codKit nvarchar,
+   tempCod nvarchar,
+   codBarra bigint,
+   idMarca int,
+   nomeMarca nvarchar,
+   processadorPlacaMae nvarchar,
+   socketCPU nvarchar,
+   formFactor nvarchar,
+   qtdSlotsMemoria smallint (1),
+   tipoDDR nvarchar,
+   capacidMemGB smallint (3),
+   status varchar,
+   imgPlacaMae image,	
+   PRIMARY KEY( codKit )
+);
+
+
+//Tabelas Comuns
+	//Locais Físicos
+	
+	CREATE TABLE Unidades_Educafro(
+		codUnidade smallint,
+		nomeUnidade nvarchar,
+		endereço nvarchar,
+		contatoNumero int,
+		contatoNome varchar,
+		statusUnidade varchar,
+		PRIMARY KEY( codUnidade )
+	);
+	
+	CREATE TABLE Departamentos(
+		codUnidade smallint,
+		codDepto smallint,
+		salaPrincipalDepto nvarchar,
+		contatoNumero int,
+		contatoNome varchar,
+		statusDepto varchar,
+		PRIMARY KEY( codUnidade )
+	);
+	
+	CREATE TABLE Salas(
+		codUnidade smallint,
+		codDepto smallint,
+		codSala smallint,
+		nomeSala nvarchar,
+		statusSala varchar,
+		PRIMARY KEY( codUnidade )
+	);
+	
+	CREATE TABLE Mesa(
+		codUnidade smallint,
+		codDepto smallint,
+		codSala smallint,
+		codMesa smallint,
+		capacidadeMaquinas smallint (2),
+		PRIMARY KEY( codUnidade )
+	);
+	
+	CREATE TABLE Assento(
+		codUnidade smallint,
+		codDepto smallint,
+		codSala smallint,
+		codMesa smallint,
+		codAssento smallint,
+		codKit nvarchar,
+		PRIMARY KEY( codUnidade )
+	);
+	
+
+//FIM das Criações
+CREATE TABLE CPU(
+   codKit nvarchar,
+   tipoTela nvarchar,
+   polegadas smallint,
+   tipoTeclado nvarchar,
+   tipoMouse nvarchar,
+   tipoSaidaAudio nvarchar,
+   tipoEntrAudio nvarchar,
+   tipoArmazenamento varchar (4),
+   espacoArmaz nvarchar,
+   ResumoProcessador nvarchar (80),
+   tipoProcessador varchar,
+   serieProcessador nvarchar,
+   qtdNucleos smallint (2),
+   ddr nvarchar,
+   capacidadeGB smallint (3),
+   nomeMarca nvarchar,
+   processadorPlacaMae nvarchar,
+   capacidMemGB smallint (3),
+   imgMonitor image,
+   imgTeclado image,
+   imgMouse image,
+   imgSaidaAudio image,
+   imgEntradaAudio image,
+   imgPlacaMae image,
+   imgHD image,
+   imgMemoria image,
+   imgProcessador image,
+   PRIMARY KEY( codKit )
+);
+
+
+
+//JOINS
+
+SELECT tipoTela, polegadas
+FROM CPU AS C
+JOIN Monitores AS M ON (C.codKit = M.codKit)
+
+SELECT tipoTeclado
+FROM CPU AS C
+JOIN Teclados AS T ON (C.codKit = T.codKit)
+
+SELECT tipoMouse
+FROM CPU AS C
+JOIN Mouses AS M ON (C.codKit = M.codKit)
+
+SELECT tipoMouse
+FROM CPU AS C
+JOIN Saida_Audio AS S ON (C.codKit = S.codKit)
+
+SELECT tipoEntrAudio
+FROM CPU AS C
+JOIN Entrada_Audio AS E ON (C.codKit = E.codKit)
+
+SELECT tipoArmazenamento, espacoArmaz
+FROM CPU AS C
+JOIN Armazenamento AS A ON (C.codKit = A.codKit)
+
+SELECT ResumoProcessador, tipoProcessador, serieProcessador, qtdNucleos
+FROM CPU AS C
+JOIN Processador AS P ON (C.codKit = P.codKit)
+
+SELECT ddr, capacidadeGB
+FROM CPU AS C
+JOIN Memoria AS M ON (C.codKit = P.codKit)
+
+Keep JOINS From CPU
+   nomeMarca nvarchar,
+   processadorPlacaMae nvarchar,
+   capacidMemGB smallint (3),
+   imgMonitor image,
+   imgTeclado image,
+   imgMouse image,
+   imgSaidaAudio image,
+   imgEntradaAudio image,
+   imgPlacaMae image,
+   imgHD image,
+   imgMemoria image,
+   imgProcessador image,
