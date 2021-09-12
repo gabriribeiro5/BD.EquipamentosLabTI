@@ -1,6 +1,3 @@
-//Banco de dados
-CREATE DATABASE DBEQUIPAMENTOS
-
 USE DBEQUIPAMENTOS
 
 //Periféricos de CPU

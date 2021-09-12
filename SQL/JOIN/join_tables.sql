@@ -1,5 +1,7 @@
 //JOINS
 
+USE DBEQUIPAMENTOS
+
 SELECT tipoTela, polegadas
 FROM CPU AS C
 JOIN Monitores AS M ON (C.codKit = M.codKit)

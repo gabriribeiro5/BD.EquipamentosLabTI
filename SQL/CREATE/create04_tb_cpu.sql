@@ -1,4 +1,6 @@
-//FIM das Criações
+USE DBEQUIPAMENTOS
+
+//Tabela central
 CREATE TABLE CPU(
    codKit nvarchar,
    tipoTela nvarchar,

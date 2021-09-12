@@ -1,3 +1,5 @@
+USE DBEQUIPAMENTOS
+
 //Componentes de CPU
 
 CREATE TABLE Armazenamento(
